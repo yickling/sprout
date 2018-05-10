@@ -1,0 +1,60 @@
+{
+  "name": "shopkyo-platform",
+  "version": "1.0.0",
+  "description": "Shopkyo platform",
+  "main": "handler.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "mocha -t 100000 test",
+    "spec": "mocha -t 10000 ./spec ./spec/**/*.js",
+    "cover": "./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=test ./node_modules/nyc/bin/nyc.js -x **/spec/** -x **/test/** --reporter=lcov --reporter=text npm run test",
+    "cover-spec": "./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=test ./node_modules/nyc/bin/nyc.js -x **/spec/** -x **/test/** --reporter=lcov --reporter=text npm run spec"
+  },
+  "keywords": [
+    "serverless",
+    "shopify"
+  ],
+  "dependencies": {
+    "aws-sdk": "^2.229.1",
+    "config": "^1.25.1",
+    "json-loader": "^0.5.4",
+    "moment": "^2.17.1",
+    "node-jose": "^0.11.0",
+    "request": "^2.79.0",
+    "request-promise-native": "^1.0.5",
+    "serverless-dynamodb-client": "^0.0.2",
+    "serverless-dynamodb-local": "^0.2.30"
+  },
+  "devDependencies": {
+    "babel-plugin-istanbul": "^4.0.0",
+    "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
+    "cross-env": "^3.2.3",
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
+    "pre-commit": "^1.2.2",
+    "serverless-offline": "^3.20.3",
+    "sinon": "^1.17.7"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
+  },
+  "pre-commit": [
+    "lint",
+    "spec",
+    "test"
+  ]
+}

@@ -1,0 +1,13 @@
+.header {
+  height: 50px;
+}
+
+.bg-light {
+  background-color: #ddd;
+}
+
+@media (max-width: 767px) {
+  .header {
+    display: none;
+  }
+}
